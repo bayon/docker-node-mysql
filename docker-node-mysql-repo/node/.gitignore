@@ -1,0 +1,10 @@
+mysql/data/*
+
+!mysql/data/.gitkeep
+
+node/node_modules 
+
+# (3) crucial exclusions:
+# 1 everything in the 'data' directory of mysql 
+# 2 -exception- unless it is in the .gitkeep file 
+# 3 the node_modules in node. 

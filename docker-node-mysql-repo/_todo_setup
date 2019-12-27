@@ -1,0 +1,42 @@
+cd mysql dir 
+docker build -t mysql . 
+docker run -d \
+--publish 6603:3306 \
+--volume=/root/path/to/this/dir/data:/var/lib/mysql \
+--name mysql mysql 
+
+docker logs mysql 
+
+ifconfig | grep "inet" 
+
+docker network inspect bridge 
+# test is the 'database name' 
+mysql -u root -p -h 127.0.0.1 -P 6603 -D test 
+
+apt install mysql-client-core-5.7 
+apt install mariadb-client-core-10.1 
+
+cd node dir 
+docker build -t node . 
+
+docker inspect node | grep IPAddress 
+
+docker run -d \
+--publish 4000:4000 \
+-e MYSQL_USER='root' \
+-e MYSQL_PASSWORD='password' \
+-e MYSQL_DATABASE='test' \
+-e MYSQL_HOST='<IPADDRESS>' \
+--link mysql:db \
+--name=node node
+
+#testing: 
+curl -X GET localhost:4000 
+
+curl -X POST localhost:4000/get-students 
+
+curl --header "Content-Type: application/json" -d '{"rollNo": 123123123, "name": "Foo Gawa"}' -X POST localhost:4000/add-student
+
+curl -X POST localhost:4000/get-students 
+
+#stop.

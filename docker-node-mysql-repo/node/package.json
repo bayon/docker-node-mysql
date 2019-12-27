@@ -1,0 +1,31 @@
+{
+    "name": "node",
+    "version": "1.0.0",
+    "description" : "Running a nodejs application.",
+    "main": "index.js", 
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git", 
+        "url": "http://www.wherever.com"
+    },
+    "keywords": [
+        "docker",
+        "mysql",
+        "nodejs", 
+        "microservices"
+    ],
+    "author": "bayon",
+    "license": "MIT",
+    "bugs": {
+        "url": "http://www.wherever.com"
+    },
+    "homepage": "www.wherever.com",
+    "dependencies" : {
+        "body-parsesr": "^1.18.3",
+        "express": "^4.16.3",
+        "mysql": "^2.15.0"
+    }
+}
